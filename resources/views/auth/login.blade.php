@@ -1,9 +1,9 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
+            <x-a :href="route('login')">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            </x-a>
         </x-slot>
 
         <!-- Session Status -->
@@ -13,7 +13,6 @@
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <x-form method="POST" :action="route('login')">
-            @csrf
 
             <!-- Email Address -->
             <div>

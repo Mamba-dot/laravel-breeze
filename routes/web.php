@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -13,6 +14,9 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix('admin')->middleware(['admin'])->group(function () {
+    Route::get('dashboard',[DashboardController::class, 'index']);
+});
 
 Route::get('/', function () {
     return view('welcome');
